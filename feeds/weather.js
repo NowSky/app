@@ -1,10 +1,13 @@
 var request = require('request');
+require('../utils/read');
+var keys = require('../api_keys.json');
 
-function get_condition(lat, lon, hour)
+function get_condition(lat, lon, hour, day)
 {
 	var hour_num = hour;
+	var day_num = day;
 
-	request('http://api.wunderground.com/api/e047945aa605784a/hourly/q/' + lat + ',' + lon + '.json', function(error, response, body)
+	request('http://api.wunderground.com/api/' + keys.wunderground + '/hourly/q/' + lat + ',' + lon + '.json', function(error, response, body)
 	{
 		if (!error && response.statusCode == 200)
 		{
@@ -12,7 +15,7 @@ function get_condition(lat, lon, hour)
 
 			forecast['hourly_forecast'].forEach(function(time)
 			{
-				if(time.FCTTIME.hour == hour_num)
+				if(time.FCTTIME.hour == hour_num && time.FCTTIME.mday == day_num)
 				{
 					console.log(time.condition);
 				}
@@ -22,5 +25,5 @@ function get_condition(lat, lon, hour)
 
 }
 
-//Test
-// get_condition('40.745695', '-74.02555389999999', 19);
+// Test
+get_condition('40.745695', '-74.02555389999999', 19, 12);
