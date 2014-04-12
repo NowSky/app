@@ -1,4 +1,10 @@
 var express = require('express');
+var request = require('request');
+
+var weather = require('feeds/weather.js');
+var sky_feeds = require('feeds/sky_feeds.js');
+var maps = require('feeds/maps.js');
+
 var app = express();
 
 app.use('/', express.static(__dirname + '/public'));
