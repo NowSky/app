@@ -1,0 +1,31 @@
+{
+  "name": "NowSky",
+  "version": "0.0.0",
+  "description": "A geo-aware sky-events notifier. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://mikeumus:Deskjet5445@github.com/Kooshaba/nowsky.git"
+  },
+  "keywords": [
+    "sky",
+    "event",
+    "geo-location",
+    "sky",
+    "watch"
+  ],
+  "author": "NowSky Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kooshaba/nowsky/issues"
+  },
+  "homepage": "https://github.com/Kooshaba/nowsky",
+  "dependencies": {
+    "request": "~2.34.0",
+    "express": "~4.0.0",
+    "forever": "~0.11.0"
+  }
+}
