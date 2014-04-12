@@ -8,6 +8,8 @@ var maps = require('./feeds/maps.js');
 var app = express();
 
 app.use('/', express.static(__dirname + '/public'));
+app.use('/scripts', express.static(__dirname + '/public/scripts'));
+app.use('/css', express.static(__dirname + '/public/css'));
 
 app.get('/hello', function(req, res)
 {
