@@ -8,12 +8,17 @@ var maps = require('./feeds/maps.js');
 var app = express();
 
 app.use('/', express.static(__dirname + '/public'));
-app.use('/scripts', express.static(__dirname + '/public/scripts'));
+app.use('/scripts', express.static(__dirname + '/public/scripts'app.use('/css', express.static(__dirname + '/public/css'));));
 app.use('/css', express.static(__dirname + '/public/css'));
+app.use('/img', express.static(__dirname + '/public/img'));
 
 app.get('/hello', function(req, res)
 {
 	res.send('Hello World');
+});
+
+app.get('/weather/place/:place', function(req, res){
+	req.params.place
 });
 
 // Request example
