@@ -14,6 +14,12 @@ app.get('/hello', function(req, res)
 	res.send('Hello World');
 });
 
+request('http://www.google.com', function (error, response, body) {
+  if (!error && response.statusCode == 200) {
+    console.log(body) // Print the google web page.
+  }
+});
+
 app.listen(8000, function(){
 	console.log('Server started');
 });
