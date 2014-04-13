@@ -34,13 +34,13 @@ var nowskySearch = function(searchVal){
 		data.forEach(function(item)
 					 {
 						 console.log(item["name"]);
-						 //$('.featured-sky-events).append()item["name"].push("<li id='""'>" + item.val + "</li>" );
+						 $('.featured-sky-events').append("<li>" + item["name"] + "</li>");
 					 });
 
-		$( "<ul/>", {
+		/* $( "<ul/>", {
 			"class": "my-new-list",
 			html: items.join( "" )
-		}).appendTo( "body" );
+		}).appendTo( "body" ); */
 		console.log(data);
 	});
 }
