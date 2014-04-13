@@ -7,6 +7,7 @@ var maps = require('./feeds/maps.js');
 var gmt = require('./feeds/gmt_time.js');
 var comets = require('./utils/getComets.js');
 var places = require('./feeds/places.js');
+var places_ac = require('./feeds/places_ac.js');
 
 var app = express();
 
@@ -29,6 +30,23 @@ app.get('/places/:query', function(req, res){
 	{
 	    var result = resp;
 	    res.send(result);
+	}
+    });
+});
+
+app.get('/places_ac/:query', functin(req, res){
+    
+    var query = req.params.query;
+
+    places.get_content(Query, function(error, resp){
+	if(error)
+	{
+	    console.log(error);
+	}
+	else
+	{
+	    var result = resp;
+	    res.send(Result);
 	}
     });
 });
