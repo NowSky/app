@@ -7,6 +7,7 @@ var x = 1;
 fs = require('fs')
 dc = require('./dateConvert.js')
 pd = require('./pullDate.js')
+pdd = require('./pullDateDay.js')
 
 fs.readFile('cometData.json', 'utf8', function (err,data) {
   if (err) {
@@ -17,9 +18,12 @@ fs.readFile('cometData.json', 'utf8', function (err,data) {
 
    comets.forEach(function(event){
      var newDate = new Date(pd(Number(event.JDate)));
-     var realDate = dc(Number(event.JDate));
-     // console.log(pd(Number(event.JDate)));
+     var realDate = pd(Number(event.JDate));
+     //console.log(pdd(Number(event.JDate)));
+     var day = pdd(Number(event.JDate));
+     console.log(day);
      event.JDate = realDate;
+     event.Name0 = day;
      // console.log(newDate);
      if (dateFrom < newDate && newDate < date2){
         if (x > 1){
