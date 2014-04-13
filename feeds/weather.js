@@ -92,6 +92,8 @@ exports.calc_events = function(user_loc, events, callback)
 		nighttime = resp;
 	});
 
+	console.log(events);
+
 	request(wunderground_url() + '/hourly/q/' + lat + ',' + lon + '.json', function(error, response, body)
 	{
 		if (!error && response.statusCode == 200)
@@ -101,7 +103,10 @@ exports.calc_events = function(user_loc, events, callback)
 
 			events.forEach(function(event)
 			{
-				if(event.hour > nighttime.sunset_hour || event.hour < nighttime.sunrise_hour)
+				hour = event.hour;
+				day = event.day;
+
+				if(hour > nighttime.sunset_hour || hour < nighttime.sunrise_hour)
 				{
 					is_night = true;
 				} else
@@ -111,13 +116,13 @@ exports.calc_events = function(user_loc, events, callback)
 
 				conditions['hourly_forecast'].forEach(function(time)
 				{
-					if(time.FCTTIME.hour == event.hour && time.FCTTIME.mday == event.day)
+					if(time.FCTTIME.hour == hour && time.FCTTIME.mday == day)
 					{
 						returns.push({
 							"name": event.name,
 							"condition": time.condition,
-							"hour": event.hour,
-							"day": event.day,
+							"hour": hour,
+							"day": day,
 							"sunset": nighttime.sunset_hour,
 							"sunrise": nighttime.sunrise_hour,
 							"night?": is_night
