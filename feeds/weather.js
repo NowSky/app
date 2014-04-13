@@ -40,11 +40,11 @@ exports.get_condition = function(loc, hour, day, callback)
 		if (!error && response.statusCode == 200)
 		{
 			var forecast = JSON.parse(body);
-			var night = {};
-			// get_night(lat, lon, function(resp)
-			// {
-			// 	night = resp;
-			// });
+			var night = "night";
+			get_night(lat, lon, function(resp)
+			{
+				night = resp;
+			});
 
 			// console.log(night.sunrise_hour + " " + night.sunset_hour);
 
@@ -53,6 +53,9 @@ exports.get_condition = function(loc, hour, day, callback)
 			forecast['hourly_forecast'].forEach(function(time)
 			{
 				// console.log(time.FCTTIME.hour);
+				
+				console.log(time.FCTTIME.mday + " "+ day_num+""+"");
+				// if(time.FCTTIME.mday == day_num)
 				if(time.FCTTIME.hour == hour_num && time.FCTTIME.mday == day_num)
 				{
 					// console.log(time.condition);
@@ -63,7 +66,8 @@ exports.get_condition = function(loc, hour, day, callback)
 					{
 						night = "Day";
 					}
-					callback( {
+					callback( null, {
+						"name": "Cool Event in the Sky",
 						"condition": time.condition,
 						"night": night
 					});
@@ -72,6 +76,45 @@ exports.get_condition = function(loc, hour, day, callback)
 	  }
 	});
 
+}
+
+exports.calc_events = function(user_loc, events, callback)
+{
+	var lat = user_loc.lat;
+	var lon = user_loc.lng;
+	var hour = 0;
+	var day = 0;
+	var conditions;
+
+	request(wunderground_url() + '/hourly/q/' + lat + ',' + lon + '.json', function(error, response, body)
+	{
+		if (!error && response.statusCode == 200)
+		{
+			var returns = [];
+			conditions = JSON.parse(body);
+
+			events.forEach(function(event)
+			{
+				conditions['hourly_forecast'].forEach(function(time)
+				{
+					if(time.FCTTIME.hour == event.hour && time.FCTTIME.mday == event.day)
+					{
+						returns.push({
+							"name": event.name,
+							"condition": time.condition,
+							"hour": event.hour,
+							"day": event.day
+						});
+					}
+				});
+			});
+
+			callback(null, returns);
+		} else
+		{
+			callback("api error");
+		}
+	});
 }
 
 // Test

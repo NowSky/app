@@ -72,17 +72,49 @@ app.get('/location/:place', function(req, res){
 						loc_obj = resp;
 
 						// res.send(events);
-						console.log(events);
+						// console.log(events);
 
-						events.forEach(function(y)
+						// events.forEach(function(y)
+						// {
+						// 	weather.get_condition(loc_obj, y.JDate.getHours(), y.JDate.getDate(), function(error, resp){
+						// 		console.log(resp);
+						// 		returns.push(resp);
+						// 	});
+						// });
+
+						var test_events = [
 						{
-							weather.get_condition(loc_obj, y.JDate.getHours(), y.JDate.getDay(), function(error, resp){
-								console.log(resp);
-								returns.push(resp);
-							});
+							"name": "Shower",
+							"hour": 12,
+							"day": 14
+						},
+						{
+							"name": "Comet",
+							"hour": 16,
+							"day": 13
+						}
+						];
+
+						weather.calc_events(loc_obj, test_events, function(error, resp)
+						{
+							if(error)
+							{
+								res.send(error);
+							} else
+							{
+								res.send(resp);
+							}
 						});
 
-						res.send(returns);
+						// for(var i = 0; i < 5; i++)
+						// {
+						// 	weather.get_condition(loc_obj, i + 5, i + 12, function(error, resp){
+						// 		console.log(resp);
+						// 		returns.push(resp);
+						// 	});
+						// }
+
+						// res.send(returns);
 
 					}
 				});

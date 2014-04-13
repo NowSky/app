@@ -24,6 +24,7 @@ exports.get_content = function(callback){
 	    gmt = gmt * 1000;
 	    var time = new Date(gmt);
 	    callback(null, time);
+	    // callback(null, new Date(2014, 3, 17, 20, 0, 0, 0))
 	}
 	else
 	{
