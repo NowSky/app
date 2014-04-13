@@ -31,17 +31,20 @@ var nowskySearch = function(searchVal){
 	//	items["name"].push( "<li id='" + key + "'>" + val + "</li>" );
 	//	});
 		
+
+
 		data.forEach(function(item)
 					 {
 						 console.log(item["name"]);
-						 //$('.featured-sky-events).append()item["name"].push("<li id='""'>" + item.val + "</li>" );
+						 var result = "<li>Event: " + item["name"] + "is occuring at " + item["hour"] + " GMT. It will be " + item["condition"] + " when this event occurs near you.</li>";
+						 $('.featured-sky-events').append(result);
 					 });
 
-		$( "<ul/>", {
-			"class": "my-new-list",
-			html: items.join( "" )
-		}).appendTo( "body" );
-		console.log(data);
+		// $( "<ul/>", {
+		// 	"class": "my-new-list",
+		// 	html: items.join( "" )
+		// }).appendTo( "body" );
+		// console.log(data);
 	});
 }
 
