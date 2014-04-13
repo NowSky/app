@@ -34,7 +34,7 @@ app.get('/places/:query', function(req, res){
     });
 });
 
-app.get('/places_ac/:query', functin(req, res){
+app.get('/places_ac/:query', function(req, res){
     
     var query = req.params.query;
 
