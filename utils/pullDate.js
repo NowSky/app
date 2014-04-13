@@ -38,6 +38,6 @@ module.exports=function(jdate) {
    var utmt = Math.floor(1440.0*(dayt - Math.floor(dayt) - utht/24.0))
    var utst = 86400.0*(dayt - Math.floor(dayt) - utht/24.0 - utmt/1440.0)
 
-   return mon + "/" + Math.floor(dayt) + "/" + yr + "  " + utht
+   return mon + "/" + Math.floor(dayt) + "/" + yr 
 
 };
