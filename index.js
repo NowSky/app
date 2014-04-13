@@ -146,6 +146,6 @@ app.get('/location/:place', function(req, res){
 	});
 });
 
-app.listen(8000, function(){
+app.listen(8080, function(){
 	console.log('Server started');
 });
