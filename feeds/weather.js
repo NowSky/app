@@ -7,7 +7,7 @@ function wunderground_url()
 	return 'http://api.wunderground.com/api/' + keys.wunderground;
 }
 
-function get_night(lat, lon)
+function get_night(lat, lon, callback)
 {
 	request(wunderground_url() + '/astronomy/q/' + lat + ',' + lon + '.json', function(error, response, body)
 	{
@@ -19,15 +19,15 @@ function get_night(lat, lon)
 
 			// console.log(astronomy.sun_phase.sunset.hour + ', ' + astronomy.sun_phase.sunrise.hour)
 
-			return {
+			callback({
 				"sunrise_hour": astronomy.sun_phase.sunrise.hour,
 				"sunset_hour": astronomy.sun_phase.sunset.hour
-			}
+			});
 		}
 	});
 }
 
-function get_condition(loc, hour, day)
+exports.get_condition = function(loc, hour, day, callback)
 {
 	var lat = loc.lat;
 	var lon = loc.lng;
@@ -39,8 +39,11 @@ function get_condition(loc, hour, day)
 		if (!error && response.statusCode == 200)
 		{
 			var forecast = JSON.parse(body);
-
-			var night = get_night(lat, lon);
+			var night = {};
+			get_night(lat, lon, function(resp)
+			{
+				night = resp;
+			});
 
 			// console.log(night.sunrise_hour + " " + night.sunset_hour);
 
@@ -51,10 +54,10 @@ function get_condition(loc, hour, day)
 				if(time.FCTTIME.hour == hour_num && time.FCTTIME.mday == day_num)
 				{
 					// console.log(time.condition);
-					return {
+					callback( {
 						"condition": time.condition,
-						
-					}
+						//nighttime logic
+					});
 				}
 			});
 	  }

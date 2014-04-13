@@ -1,7 +1,7 @@
-module.exports=function(dateFrom){
+module.exports=function(dateFrom, callback){
 /*var date1 = new Date();*/
 var date2 = new Date(dateFrom);
-date2.setDate(date2.getDate() + 30);
+date2.setDate(date2.getDate() + 7);
 var x = 1;
 
 fs = require('fs')
@@ -13,23 +13,24 @@ fs.readFile('cometData.json', 'utf8', function (err,data) {
     return console.log(err);
   }
     var comets = JSON.parse(data);
-    var results = "";
+    var results = [];
 
    comets.forEach(function(event){
      var newDate = new Date(pd(Number(event.JDate)));
+     event.JDate = newDate;
      if (dateFrom < newDate && newDate < date2){
         if (x > 1){
-            results = results + "," + JSON.stringify(event);
+            results.push(event);
         }
         else {
-            results = results + JSON.stringify(event);
+            results.push(event);
         }
       /*results = results + "," + JSON.stringify(event);*/
      }
    });
    
     /* console.log(results);*/
-    return results;
+   callback(null, results);
  
 });
 };

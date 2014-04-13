@@ -20,11 +20,10 @@ exports.get_content = function(callback){
 	    var response = JSON.parse(body);
 	    var dst = response['dstOffset'];
 	    var raw = response['rawOffset'];
-	    var gmt = timestamp + dst + raw;
-	    var time = new Data(gmt);
-	    console.log(time.getFullYear());
-	    gmt = gmt.toString();
-	    callback(null, gmt);
+	    var gmt = timestamp + (raw * -1);
+	    gmt = gmt * 1000;
+	    var time = new Date(gmt);
+	    callback(null, time);
 	}
 	else
 	{
