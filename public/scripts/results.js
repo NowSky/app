@@ -31,15 +31,20 @@ var nowskySearch = function(searchVal){
 	//	items["name"].push( "<li id='" + key + "'>" + val + "</li>" );
 	//	});
 		
+		
 
+		data.forEach(function(item){
+			var eventName = item["name"];
+			console.log(item["name"]);
+			var result = "<li class='featured-event-item'>Event: " + eventName + " is occuring at " + item["hour"] + " GMT. It will be " + item["condition"] + " when this event occurs near you.</li>";
+			if(eventName === "Meteor Shower"){
+				var meteorSVG = '<iframe src="./meteors-svg.html" class="meteors-frame" scrolling="no"></iframe>';
+				$('.featured-event-item').append(meteorSVG);
+			}
+			$('.featured-events-list').append(result);
+			
 
-		data.forEach(function(item)
-					 {
-						 console.log(item["name"]);
-						 var result = "<li>Event: " + item["name"] + " is occuring at " + item["hour"] + " GMT. It will be " + item["condition"] + " when this event occurs near you.</li>";
-						 $('.featured-events-list').append(result);
-
-					 });
+		});
 
 		/* $( "<ul/>", {
 			"class": "my-new-list",

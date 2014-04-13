@@ -36,6 +36,11 @@
 			position: fixed;
 			top: 54px;
 		}
+		.splash-container{
+			overflow: visible;
+			height: inherit;
+			display: block;
+		}
 		#autocomplete{
 			background: transparent;
 			font-size: 20px;
@@ -56,8 +61,16 @@
 		}
 			.featured-events-list li{
 				padding: 33px 23px;
-				background: blue;
+				background: rgba(99, 137, 204, 0.88);
 				border-radius: 5px;
+				color: #fff;
+				margin: 7px 0;
+			}
+			.results-splash{
+				text-align: center;
+				text-transform: uppercase;
+				overflow: visible;
+				margin: 188px auto;
 			}
 	</style>
   
@@ -68,7 +81,9 @@
 <body onload="initialize()">
 <div class="header">
     <div id="headNav" class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
-        <a class="pure-menu-heading" href="/"><span class="now-logo">Now</span><span class="sky-logo">Sky</span></a>
+        <a class="pure-menu-heading" href="/">
+			<iframe src="./nowsky-svg.html" class="logo-svg" scrolling="no"></iframe>
+		</a>
 		
     </div>
 </div>
@@ -80,7 +95,7 @@
 				<input id="autocomplete" class="search-element right" style="width: 100%;" placeholder="Sky Search" onFocus="geolocate()" type="text" autofocus name="userInput">
 			</form>
 		</span> <!-- search-area pure-g-r end -->
-    <div class="splash">
+    <div class="results-splash">
 		<video autoplay loop id="bgvid">
 			<source src="./img/stars3.mp4" type="video/mp4">
 		</video>
@@ -88,14 +103,21 @@
 		<div class="featured-sky-events">
 		</div>
 
-    </div>
-</div>
-
 <div class="featured-sky-events">
 	<ul class="featured-events-list">
 	
 	
 	</ul>
+</div>
+
+    </div>
+</div>
+	
+	
+    <div class="footer l-box is-center">
+        Space Apps Challenge 2014 Participant
+    </div>
+
 </div>
 	
 <script src="./bower_components/jquery/dist/jquery.min.js"></script>
