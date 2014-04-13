@@ -15,8 +15,26 @@ function showPosition(position)
 
 $(function(){
 	
-	// $('input.splash-head').one('mouseenter', clearInput(this));			
-	$('#searchInput, #location-3-icon').on({
+	// search input typeahead 
+	/*
+	var skyLocales = new Bloodhound({
+	datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
+	queryTokenizer: Bloodhound.tokenizers.whitespace,
+	// prefetch: '../data/films/post_1960.json',
+	remote: '../places/%QUERY.json'
+	});
+
+	skyLocales.initialize();
+
+	$('.typeahead').typeahead(null, {
+		name: 'sky-locales',
+		displayKey: 'value',
+		source: skyLocales.ttAdapter()
+	}); //typeahead end
+	*/
+	
+	// search area events
+	$('#autocomplete, #location-3-icon').on({
 		mouseenter: function(){
 			$(this).attr('placeholder', '');
 			$('.map-pin-icon').css('opacity', 1);
@@ -24,9 +42,14 @@ $(function(){
 		mouseleave: function(){
 			$(this).attr('placeholder', 'Your Locale.');
 			$('.map-pin-icon').css('opacity', 0.8);
+		},
+		onblur: function(){
+			$(this).attr('placeholder', 'Your Locale.');
+			$('.map-pin-icon').css('opacity', 0.8);
 		}
-	});
+	}); // search area events end
 	
+	// map pin events
 	$('#myLocale').on({
 		mouseenter: function(){
 			$(this).popover('show');
@@ -34,7 +57,23 @@ $(function(){
 		mouseleave: function(){
 			$(this).popover('hide');
 		}
-	});
+	}); // map pin end
+	
+	// search-area scroll past events 
+	function scrolledPast(){
+		$('.content-wrapper').css('opacity', 1);
+		$('.search-element').css('opacity', 0);
+	}
+	function scrolledUp(){
+		$('.content-wrapper').css('opacity', 0);
+		$('.search-element').css('opacity', 1);
+	}
+	
+	window.onscroll = function(){
+	document.documentElement.scrollTop || document.body.scrollTop > 303 ?
+		scrolledPast()
+		: scrolledUp();
+	} // search-area scroll-past end
 
 	
 });

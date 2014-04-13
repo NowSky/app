@@ -1,6 +1,20 @@
 
+::-webkit-scrollbar{width:17px;background: rgb(130, 154, 173)}
+::-webkit-scrollbar-thumb{background:rgba(33,44,255,0.2	);-webkit-box-shadow:inset 0 0 6px rgba(77,33,133,0.9)}
+::-webkit-scrollbar-thumb:window-inactive{background:rgba(216,210,206,0.3)}
+::selection{background:#ff7878;color:#fff;text-shadow:none}
+
 body{
 	background: #0b0607;
+}
+
+.now-logo{
+	color: #fff;
+	font-weight: 200;
+}
+.sky-logo{
+	color: rgb(0, 214, 255);
+	font-weight: 800;
 }
 
 #headNav{
@@ -15,11 +29,19 @@ body{
 	float: left;
 }
 
-.splash-head{
+.splash-head, .search-element{
+	transition: 1s;
+}
+
+
+#searchArea{
 	transition: 1s;
 }
 
 .sky-search-field input{
+	background: transparent !important;
+	display: block;
+	position: fixed;
 }
 
 video { display: block; }
@@ -29,28 +51,43 @@ video#bgvid {
 	width: auto; height: auto; z-index: -100;
 }
 
-.map-icon-span{
-	overflow: hidden;
+
+.meteors-frame{
 	border: 0;
+	opacity: 0.5;
+	transition: 1s;
 }
+	.meteors-frame:hover{
+		opacity: 0.9;
+	}
 
 #myLocale{
 	background-color: transparent;
 	border: 2px solid rgba(250, 250, 250, 0.9);
 	opacity: 0.8;
 	transition: 1s;
-	margin: 0 13px;
+	margin: -7px 13px 0;
+	float: right;
 }
 	#myLocale:hover{
 		opacity: 1;
 	}
 
+.map-icon-span{
+	overflow: hidden;
+	border: 0;
+	background: transparent;
+	float: right;
+	display: block;
+	width: 169px;
+	height: 100px;
+}
+
 .map-pin-icon{
 	transition: 1s;
 	fill: rgba(250, 250, 250, 0.8);
-	display: block;
-	width: 13%;
-	height: 13%;
-	margin: 0px 0px 0px -113px;
 	cursor: pointer;
+	height: 91px;
+	width: 91px;
+	margin: 15px -111px 0 0;
 }

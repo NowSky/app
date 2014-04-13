@@ -160,7 +160,7 @@ a.pure-button-primary {
     font-weight: bold;
     color: white;
     border: 3px solid  rgba(250, 250, 250, 0.8);
-    padding: 1em 1.6em;
+    padding: 0.6em 1.6em;
     font-weight: 100;
     border-radius: 5px;
     line-height: 1em;
@@ -171,6 +171,8 @@ a.pure-button-primary {
     color: white;
     letter-spacing: 0.05em;
     opacity: 0.8;
+	margin: 43px 0 0 0;
+	float: right;
 }
 
 /*
@@ -184,8 +186,9 @@ a.pure-button-primary {
     width: 100%;
     min-height: 12%;
     z-index: 2;
-    background: white;
-
+    background: rgba(30, 54, 73, 0.82);
+	opacity: 0.1;
+	transition: 1s;
 }
 
 /* This is the class used for the main content headers (<h2>) */
@@ -211,7 +214,7 @@ a.pure-button-primary {
 
 /* This is the class used for the dark-background areas. */
 .ribbon {
-    background: #2d3e50;
+    background: rgba(45, 62, 80, 0.8);
     color: #aaa;
 }
 
