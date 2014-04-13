@@ -17,8 +17,9 @@ fs.readFile('cometData.json', 'utf8', function (err,data) {
 
    comets.forEach(function(event){
      var newDate = new Date(pd(Number(event.JDate)));
+     var realDate = dc(Number(event.JDate));
      // console.log(pd(Number(event.JDate)));
-     event.JDate = newDate;
+     event.JDate = realDate;
      // console.log(newDate);
      if (dateFrom < newDate && newDate < date2){
         if (x > 1){
