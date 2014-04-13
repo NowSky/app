@@ -28,16 +28,10 @@ app.get('/places/:query', function(req, res){
 	else
 	{
 	    var result = resp;
-	    var resultArr = new Array();
-	    if(result['status'] == 'OK'){
-		for(i = 0; i < 5 && i < ['results'].length; i++){
-		    resultArr[i] = ['results'][i]['formatted_address'];
-		}
-	    }
-	    res.send(resultArr);
+	    res.send(result);
 	}
     });
-}
+});
 
 
 app.get('/events', function(req, res)
