@@ -11,23 +11,26 @@ var local_coordinates = {
     'lng': '-74.0255538999999999'
 };
 
-var get_content = function(){
+exports.get_content = function(callback){
 
     request(generate_url(local_coordinates,keys.google), function (error, response, body) {
 	if (!error && response.statusCode == 200) 
 	{
-	    console.log(body);
+	    // console.log(body);
 	    var response = JSON.parse(body);
 	    var dst = response['dstOffset'];
 	    var raw = response['rawOffset'];
 	    var gmt = timestamp + dst + raw;
-	    return(gmt);
+	    var time = new Data(gmt);
+	    console.log(time.getFullYear());
+	    gmt = gmt.toString();
+	    callback(null, gmt);
 	}
 	else
 	{
-	    console.log("error");
+	    console.log("gmt time error");
 	}
-    })
+    });
 
 };
 
