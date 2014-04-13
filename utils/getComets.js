@@ -24,7 +24,7 @@ fs.readFile('cometData.json', 'utf8', function (err,data) {
      var day = pdd(Number(event.JDate));
      var hour = pdh(Number(event.JDate));
      console.log(hour);
-     event.JDate = realDate;
+     event.JDate = day;
      event.Name0 = hour;
      // console.log(newDate);
      if (dateFrom < newDate && newDate < date2){
