@@ -1,4 +1,4 @@
-//request data from the google place api
+//request data from the google places auto-complete api
 
 var request = require('request');
 require('../utils/read');
@@ -6,11 +6,10 @@ var keys = require('../api_keys.json');
 
 exports.get_content = function(query, callback){
     request(generate_url(query,keys.google), function (error, response, body) {
-    	if (!error && response.statusCode == 200)
+	if(!error && response.statusCode == 200)
 	{
 	    var places = JSON.parse(body);
-	    var name = places['formatted_address'];
-	    callback(null, name);
+	    callback(null, places);
 	}
 	else
 	{
@@ -21,6 +20,5 @@ exports.get_content = function(query, callback){
 
 var generate_url = function(query,api_key){
     
-    return('https://maps.googleapis.com/maps/api/place/textsearch/json?query=' + query + '&sensor=false&key=' + api_key);
-
+    return('https://maps.googleapis.com/maps/api/place/autocomplete/json?input=' + query + '&sensor=false&key=' + api_key);
 }
