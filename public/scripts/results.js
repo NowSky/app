@@ -38,13 +38,15 @@ var nowskySearch = function(searchVal){
 						 console.log(item["name"]);
 						 var result = "<li>Event: " + item["name"] + "is occuring at " + item["hour"] + " GMT. It will be " + item["condition"] + " when this event occurs near you.</li>";
 						 $('.featured-sky-events').append(result);
+
 					 });
 
-		// $( "<ul/>", {
-		// 	"class": "my-new-list",
-		// 	html: items.join( "" )
-		// }).appendTo( "body" );
-		// console.log(data);
+		/* $( "<ul/>", {
+			"class": "my-new-list",
+			html: items.join( "" )
+		}).appendTo( "body" ); */
+		console.log(data);
+>>>>>>> 028b04738eaa8673fa3ce68137dd67d9b0f03509
 	});
 }
 
