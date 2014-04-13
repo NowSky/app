@@ -1,4 +1,4 @@
-module.exports=function(){
+module.exports=function(callback){
 var http = require("http");
 var S = require('string');
 
@@ -12,9 +12,9 @@ var data = "";
       data += chunk;
     });
     res.on("end", function() {
-     return S(data).between('<!-- start content -->', '<!-- end content -->').s;
+     callback( null, S(data).between('<!-- start content -->', '<!-- end content -->').s);
     });
   }).on("error", function() {
-   return "Sorry, there was an error."; 
+   callback( "Sorry, there was an error."); 
   });
 };

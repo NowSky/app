@@ -8,6 +8,7 @@ var gmt = require('./feeds/gmt_time.js');
 var comets = require('./utils/getComets.js');
 var places = require('./feeds/places.js');
 var places_ac = require('./feeds/places_ac.js');
+var tonight = require('./utils/getTonightSkyHTML.js');
 
 var app = express();
 
@@ -80,6 +81,18 @@ app.get('/events', function(req, res)
 // change get comets to return json array
 // do night time logic
 
+app.get('/tonight', function(req, res){
+	tonight(function(error, resp){
+		if(error)
+		{
+			res.send("NOPE");
+		} else
+		{
+			res.send(resp);
+		}
+	})
+});
+
 app.get('/location/:place', function(req, res){
 	//event shit
 	var events = [];
@@ -90,7 +103,7 @@ app.get('/location/:place', function(req, res){
 	{
 		if(error)
 		{
-			console.log('You dun FUCKED UP A A RON');
+			console.log('Error');
 		} else
 		{
 			comets(resp, function(error, x)
@@ -111,18 +124,28 @@ app.get('/location/:place', function(req, res){
 
 						var test_events = [
 						{
-							"name": "Shower",
+							"name": "Meteor Shower",
 							"hour": 12,
 							"day": 14
 						},
 						{
-							"name": "Comet",
+							"name": "Comet Passing",
 							"hour": 16,
 							"day": 13
 						},
 						{
-							"name": "Super Cool Thing You Can't Miss",
+							"name": "Meteor Shower",
 							"hour": 20,
+							"day": 13
+						},
+						{
+							"name": "Asteroid",
+							"hour": 22,
+							"day": 13
+						},
+						{
+							"name": "Space Junk",
+							"hour": 23,
 							"day": 13
 						}
 						];
