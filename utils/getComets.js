@@ -8,6 +8,7 @@ fs = require('fs')
 dc = require('./dateConvert.js')
 pd = require('./pullDate.js')
 pdd = require('./pullDateDay.js')
+pdh = require('./pullDateHour.js')
 
 fs.readFile('cometData.json', 'utf8', function (err,data) {
   if (err) {
@@ -21,9 +22,10 @@ fs.readFile('cometData.json', 'utf8', function (err,data) {
      var realDate = pd(Number(event.JDate));
      //console.log(pdd(Number(event.JDate)));
      var day = pdd(Number(event.JDate));
-     console.log(day);
+     var hour = pdh(Number(event.JDate));
+     console.log(hour);
      event.JDate = realDate;
-     event.Name0 = day;
+     event.Name0 = hour;
      // console.log(newDate);
      if (dateFrom < newDate && newDate < date2){
         if (x > 1){
