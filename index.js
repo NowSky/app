@@ -87,19 +87,9 @@ app.get('/location/:place', function(req, res){
 					} else
 					{
 						//Resp contains lat and lng coords
-						//Add new weather shit
 						loc_obj = resp;
 
-						// res.send(events);
 						// console.log(events);
-
-						// events.forEach(function(y)
-						// {
-						// 	weather.get_condition(loc_obj, y.JDate.getHours(), y.JDate.getDate(), function(error, resp){
-						// 		console.log(resp);
-						// 		returns.push(resp);
-						// 	});
-						// });
 
 						var test_events = [
 						{
@@ -110,6 +100,11 @@ app.get('/location/:place', function(req, res){
 						{
 							"name": "Comet",
 							"hour": 16,
+							"day": 13
+						},
+						{
+							"name": "Super Cool Thing You Can't Miss",
+							"hour": 20,
 							"day": 13
 						}
 						];
@@ -125,21 +120,10 @@ app.get('/location/:place', function(req, res){
 							}
 						});
 
-						// for(var i = 0; i < 5; i++)
-						// {
-						// 	weather.get_condition(loc_obj, i + 5, i + 12, function(error, resp){
-						// 		console.log(resp);
-						// 		returns.push(resp);
-						// 	});
-						// }
-
-						// res.send(returns);
-
 					}
 				});
 
 			});
-			// time = resp;
 		}
 	});
 });
