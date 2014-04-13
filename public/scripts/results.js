@@ -37,7 +37,7 @@ var nowskySearch = function(searchVal){
 					 {
 						 console.log(item["name"]);
 						 var result = "<li>Event: " + item["name"] + " is occuring at " + item["hour"] + " GMT. It will be " + item["condition"] + " when this event occurs near you.</li>";
-						 $('.featured-sky-events').append(result);
+						 $('.featured-events-list').append(result);
 
 					 });
 

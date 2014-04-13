@@ -51,6 +51,14 @@
 			#autocomplete:hover{
 				opacity: 1;
 			}
+		.featured-events-list{
+			list-style: none;
+		}
+			.featured-events-list li{
+				padding: 33px 23px;
+				background: blue;
+				border-radius: 5px;
+			}
 	</style>
   
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
@@ -83,7 +91,12 @@
     </div>
 </div>
 
-<div class="featured-sky-events"> </div>
+<div class="featured-sky-events">
+	<ul class="featured-events-list">
+	
+	
+	</ul>
+</div>
 	
 <script src="./bower_components/jquery/dist/jquery.min.js"></script>
 <script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
