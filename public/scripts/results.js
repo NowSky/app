@@ -46,7 +46,6 @@ var nowskySearch = function(searchVal){
 			html: items.join( "" )
 		}).appendTo( "body" ); */
 		console.log(data);
->>>>>>> 028b04738eaa8673fa3ce68137dd67d9b0f03509
 	});
 }
 
