@@ -33,6 +33,9 @@ body{
 	transition: 1s;
 }
 
+.right{
+	float: right;
+}
 
 #searchArea{
 	transition: 1s;
@@ -42,6 +45,11 @@ body{
 	background: transparent !important;
 	display: block;
 	position: fixed;
+	z-index: 1;
+}
+.sky-search-field{
+	height: 111px;
+	margin: 33px 0 23px;
 }
 
 video { display: block; }
@@ -80,7 +88,9 @@ video#bgvid {
 	display: block;
 	width: 169px;
 	height: 100px;
-	margin: 0 0 0 454px;
+	margin: 0 0 0 510px;
+	z-index: 2;
+	position: relative;
 }
 
 .map-pin-icon{

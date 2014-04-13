@@ -30,6 +30,11 @@
 			document.createElement('video');
 		</script>
 	<![endif]-->
+	<style>
+		#autocomplete{
+			padding: 0.6em 2em 0.6em 1.6em;
+		}
+	</style>
   
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
 <script src="./scripts/places-autocomplete.js"></script>
@@ -38,7 +43,7 @@
 <body onload="initialize()">
 <div class="header">
     <div id="headNav" class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
-        <a class="pure-menu-heading" href=""><span class="now-logo">Now</span><span class="sky-logo">Sky</span></a>
+        <a class="pure-menu-heading" href="/"><span class="now-logo">Now</span><span class="sky-logo">Sky</span></a>
         <!-- <ul>
             <li class="pure-menu-selected"><a href="#">Home</a></li>
             <li><a href="#">Tour</a></li>
@@ -55,8 +60,9 @@
 		
 		<span id="searchArea" class="search-area search-element"> <!-- search-area start -->
 			
-			<form class="sky-search-field search-element" action="../location/">
-				<input id="autocomplete" class="splash-head search-element" placeholder="Your locale." onFocus="geolocate()" type="text" autofocus>
+			<div class="pure-g-r">
+			<form class="sky-search-field search-element" action="./results.html" name="">
+				<input id="autocomplete" class="splash-head search-element" placeholder="Your locale." onFocus="geolocate()" type="text" autofocus name="userInput">
 				<button class="map-icon-span" type="submit">
 					<svg class="map-pin-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 					viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"> <path
@@ -65,12 +71,15 @@
 					s20.953-46.8,46.801-46.8s46.801,20.953,46.801,46.8S281.848,224.133,256,224.133z"/> </svg>
 				</button>
 			</form>
+			</div> 
 
 			<p id="demo"> </p>
+			<div class="pure-g-r">
 			<span class="splash-subhead">
 				<button id="myLocale" class="pure-button pure-button-primary" onclick="getLocation()" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Click for your coordinates.">MY LOCALE</button>
 				Find a Sky Event to watch tonight.
 			</span>
+			</div>
 		</span> <!-- search-area pure-g-r end -->
     </div>
 </div>

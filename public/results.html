@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="A layout example that shows off a responsive product landing page.">
+
+    <title>Find a Sky Event to watch tonight. - NowSky</title>
+
+<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.4.2/pure.css">
+<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="./css/style.css">
+
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="css/main-grid-old-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="css/main-grid.css">
+    <!--<![endif]-->
+    
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="css/layouts/marketing-old-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="css/layouts/marketing.css">
+    <!--<![endif]-->
+	
+	<!--[if lt IE 9]>
+		<script>
+			document.createElement('video');
+		</script>
+	<![endif]-->
+	<style>
+		#searchArea{
+			width: 100%;
+			position: fixed;
+			top: 54px;
+		}
+		#autocomplete{
+			background: transparent;
+			font-size: 20px;
+			font-weight: bold;
+			color: #fafafa;
+			border: 3px solid  rgba(250, 250, 250, 0.1);
+			padding: 0.6em 1.6em 0.6em 2.6em;
+			font-weight: 100;
+			border-radius: 5px;
+			line-height: 1em;
+			opacity: 0.6;
+		}
+			#autocomplete:hover{
+				opacity: 1;
+			}
+	</style>
+  
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
+<script src="./scripts/places-autocomplete.js"></script>
+
+</head>
+<body onload="initialize()">
+<div class="header">
+    <div id="headNav" class="home-menu pure-menu pure-menu-open pure-menu-horizontal pure-menu-fixed">
+        <a class="pure-menu-heading" href="/"><span class="now-logo">Now</span><span class="sky-logo">Sky</span></a>
+		
+    </div>
+</div>
+
+<div id="splashBox" class="splash-container">
+       
+		<span id="searchArea" class="search-area search-element"> <!-- search-area start -->
+			<form class="right" action="./results.html" name="" style="width: 101%;">
+				<input id="autocomplete" class="search-element right" style="width: 101%;" placeholder="Sky Search" onFocus="geolocate()" type="text" autofocus name="userInput">
+			</form>
+		</span> <!-- search-area pure-g-r end -->
+    <div class="splash">
+		<video autoplay loop id="bgvid">
+			<source src="./img/stars3.mp4" type="video/mp4">
+		</video>
+    </div>
+</div>
+
+
+	
+<script src="./bower_components/jquery/dist/jquery.min.js"></script>
+<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./scripts/results.js"> </script>
+
+
+</body>
+</html>
