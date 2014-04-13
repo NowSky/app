@@ -92,7 +92,7 @@ exports.calc_events = function(user_loc, events, callback)
 		nighttime = resp;
 	});
 
-	console.log(events);
+	// console.log(events);
 
 	request(wunderground_url() + '/hourly/q/' + lat + ',' + lon + '.json', function(error, response, body)
 	{
