@@ -97,11 +97,18 @@ app.get('/location/:place', function(req, res){
 						loc_obj = resp;
 
 						// res.send(events);
+						console.log(events);
 
 						events.forEach(function(y)
 						{
-
+							weather.get_condition(loc_obj, y.JDate.getHours(), y.JDate.getDay(), function(error, resp){
+								console.log(resp);
+								returns.push(resp);
+							});
 						});
+
+						res.send(returns);
+
 					}
 				});
 

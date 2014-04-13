@@ -33,6 +33,7 @@ exports.get_condition = function(loc, hour, day, callback)
 	var lon = loc.lng;
 	var hour_num = hour;
 	var day_num = day;
+	var night = "Day";
 
 	request(wunderground_url() + '/hourly/q/' + lat + ',' + lon + '.json', function(error, response, body)
 	{
@@ -40,10 +41,10 @@ exports.get_condition = function(loc, hour, day, callback)
 		{
 			var forecast = JSON.parse(body);
 			var night = {};
-			get_night(lat, lon, function(resp)
-			{
-				night = resp;
-			});
+			// get_night(lat, lon, function(resp)
+			// {
+			// 	night = resp;
+			// });
 
 			// console.log(night.sunrise_hour + " " + night.sunset_hour);
 
@@ -51,12 +52,20 @@ exports.get_condition = function(loc, hour, day, callback)
 
 			forecast['hourly_forecast'].forEach(function(time)
 			{
+				// console.log(time.FCTTIME.hour);
 				if(time.FCTTIME.hour == hour_num && time.FCTTIME.mday == day_num)
 				{
 					// console.log(time.condition);
+					if(hour_num > 18 && hour_num < 6)
+					{
+						night = "Night";
+					} else
+					{
+						night = "Day";
+					}
 					callback( {
 						"condition": time.condition,
-						//nighttime logic
+						"night": night
 					});
 				}
 			});
