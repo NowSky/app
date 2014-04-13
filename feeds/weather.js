@@ -85,6 +85,12 @@ exports.calc_events = function(user_loc, events, callback)
 	var hour = 0;
 	var day = 0;
 	var conditions;
+	var nighttime;
+	var is_night;
+
+	get_night(lat, lon, function(resp){
+		nighttime = resp;
+	});
 
 	request(wunderground_url() + '/hourly/q/' + lat + ',' + lon + '.json', function(error, response, body)
 	{
@@ -95,6 +101,14 @@ exports.calc_events = function(user_loc, events, callback)
 
 			events.forEach(function(event)
 			{
+				if(event.hour > nighttime.sunset_hour || event.hour < nighttime.sunrise_hour)
+				{
+					is_night = true;
+				} else
+				{
+					is_night = false;
+				}
+
 				conditions['hourly_forecast'].forEach(function(time)
 				{
 					if(time.FCTTIME.hour == event.hour && time.FCTTIME.mday == event.day)
@@ -103,7 +117,10 @@ exports.calc_events = function(user_loc, events, callback)
 							"name": event.name,
 							"condition": time.condition,
 							"hour": event.hour,
-							"day": event.day
+							"day": event.day,
+							"sunset": nighttime.sunset_hour,
+							"sunrise": nighttime.sunrise_hour,
+							"night?": is_night
 						});
 					}
 				});
