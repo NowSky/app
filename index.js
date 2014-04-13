@@ -11,6 +11,7 @@ app.use('/', express.static(__dirname + '/public'));
 app.use('/css', express.static(__dirname + '/public/css'));
 app.use('/scripts', express.static(__dirname + '/public/scripts'));
 app.use('/img', express.static(__dirname + '/public/img'));
+app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
 app.get('/hello', function(req, res)
 {

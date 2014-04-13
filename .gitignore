@@ -26,3 +26,4 @@ build/Release
 node_modules
 
 api_keys.xml
+api_keys.json
