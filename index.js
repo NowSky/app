@@ -13,21 +13,20 @@ app.use('/scripts', express.static(__dirname + '/public/scripts'));
 app.use('/img', express.static(__dirname + '/public/img'));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
-app.get('/hello', function(req, res)
+app.get('/location/:place', function(req, res)
 {
-	res.send('Hello World');
-});
+	var location = req.params.place;
+	maps.get_content(location, function(error, resp){
+		if (error)
+		{
+			console.log(error);
+		} else
+		{
+			res.send(resp);
+		}
+	});
 
-app.get('/weather/place/:place', function(req, res){
-	req.params.place
 });
-
-// Request example
-// request('http://www.google.com', function (error, response, body) {
-//   if (!error && response.statusCode == 200) {
-//     console.log(body) // Print the google web page.
-//   }
-// });
 
 app.listen(8000, function(){
 	console.log('Server started');

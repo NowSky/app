@@ -17,18 +17,20 @@ function get_night(lat, lon)
 
 			// console.log(astronomy.sun_phase.sunrise.hour);
 
-			console.log(astronomy.sun_phase.sunset.hour + ', ' + astronomy.sun_phase.sunrise.hour)
+			// console.log(astronomy.sun_phase.sunset.hour + ', ' + astronomy.sun_phase.sunrise.hour)
 
-			// return {
-			// 	"sunrise_hour": astronomy.sun_phase.sunrise.hour,
-			// 	"sunset_hour": astronomy.sun_phase.sunset.hour
-			// }
+			return {
+				"sunrise_hour": astronomy.sun_phase.sunrise.hour,
+				"sunset_hour": astronomy.sun_phase.sunset.hour
+			}
 		}
 	});
 }
 
-function get_condition(lat, lon, hour, day)
+function get_condition(loc, hour, day)
 {
+	var lat = loc.lat;
+	var lon = loc.lng;
 	var hour_num = hour;
 	var day_num = day;
 
@@ -38,7 +40,7 @@ function get_condition(lat, lon, hour, day)
 		{
 			var forecast = JSON.parse(body);
 
-			// var night = get_night(lat, lon);
+			var night = get_night(lat, lon);
 
 			// console.log(night.sunrise_hour + " " + night.sunset_hour);
 
@@ -48,7 +50,11 @@ function get_condition(lat, lon, hour, day)
 			{
 				if(time.FCTTIME.hour == hour_num && time.FCTTIME.mday == day_num)
 				{
-					console.log(time.condition);
+					// console.log(time.condition);
+					return {
+						"condition": time.condition,
+						
+					}
 				}
 			});
 	  }
