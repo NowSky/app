@@ -1,4 +1,4 @@
-function convertJDate(jdate) {
+module.exports=function(jdate) {
  
    var jd0 = jdate + 0.5 
    var z = Math.floor(jd0)
@@ -40,4 +40,4 @@ function convertJDate(jdate) {
 
    return mon + "/" + Math.floor(dayt) + "/" + yr + "  " + utht
 
-}
+};
