@@ -15,24 +15,6 @@ function showPosition(position)
 
 $(function(){
 	
-	// search input typeahead 
-	/*
-	var skyLocales = new Bloodhound({
-	datumTokenizer: Bloodhound.tokenizers.obj.whitespace('value'),
-	queryTokenizer: Bloodhound.tokenizers.whitespace,
-	// prefetch: '../data/films/post_1960.json',
-	remote: '../places/%QUERY.json'
-	});
-
-	skyLocales.initialize();
-
-	$('.typeahead').typeahead(null, {
-		name: 'sky-locales',
-		displayKey: 'value',
-		source: skyLocales.ttAdapter()
-	}); //typeahead end
-	*/
-	
 	// search area events
 	$('#autocomplete, #location-3-icon').on({
 		mouseenter: function(){
