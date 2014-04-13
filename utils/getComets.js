@@ -1,6 +1,6 @@
-module.exports=function(){
-var date1 = new Date();
-var date2 = new Date();
+module.exports=function(dateFrom){
+/*var date1 = new Date();*/
+var date2 = new Date(dateFrom);
 date2.setDate(date2.getDate() + 30);
 var x = 1;
 
@@ -17,7 +17,7 @@ fs.readFile('cometData.json', 'utf8', function (err,data) {
 
    comets.forEach(function(event){
      var newDate = new Date(pd(Number(event.JDate)));
-     if (date1 < newDate && newDate < date2){
+     if (dateFrom < newDate && newDate < date2){
         if (x > 1){
             results = results + "," + JSON.stringify(event);
         }
