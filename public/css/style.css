@@ -77,10 +77,10 @@ video#bgvid {
 	overflow: hidden;
 	border: 0;
 	background: transparent;
-	float: right;
 	display: block;
 	width: 169px;
 	height: 100px;
+	margin: 0 0 0 454px;
 }
 
 .map-pin-icon{
