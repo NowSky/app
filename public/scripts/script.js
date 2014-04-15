@@ -1,14 +1,11 @@
 var geoLoco = document.getElementById("demo");
-function getLocation()
-  {
-  if (navigator.geolocation)
-    {
+function getLocation(){
+  if (navigator.geolocation){
     navigator.geolocation.watchPosition(showPosition);
     } else{geoLoco.innerHTML = "Geolocation is not supported by this browser.";}
   }
 
-function showPosition(position)
-  {
+function showPosition(position){
   geoLoco.innerHTML = "Latitude: " + position.coords.latitude + 
   "<br>Longitude: " + position.coords.longitude; 
 }
@@ -47,12 +44,12 @@ $(function(){
 		$('.search-element').css('opacity', 0);
 	}
 	function scrolledUp(){
-		$('.content-wrapper').css('opacity', 0);
+		$('.content-wrapper').css('opacity', 0.4);
 		$('.search-element').css('opacity', 1);
 	}
 	
 	window.onscroll = function(){
-	document.documentElement.scrollTop || document.body.scrollTop > 303 ?
+	document.documentElement.scrollTop || document.body.scrollTop > 222 ?
 		scrolledPast()
 		: scrolledUp();
 	} // search-area scroll-past end

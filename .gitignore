@@ -2,7 +2,6 @@ log
 # Logs
 logs
 *.log
-api_keys.xml
 
 # Runtime data
 pids

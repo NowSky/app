@@ -39,6 +39,7 @@ body{
 
 #searchArea{
 	transition: 1s;
+	display: block;
 }
 
 .sky-search-field input{
@@ -47,13 +48,10 @@ body{
 	position: fixed;
 	z-index: 1;
 }
-.sky-search-field{
-	height: 111px;
-	margin: 33px 0 23px;
-}
 
 video { display: block; }
 video#bgvid {
+	background: url(https://googledrive.com/host/0B92YJK5CJQemVXF4V1ZDQklXUnc/stars2.jpg) no-repeat center;
 	position: fixed; right: 0; bottom: 0;
 	min-width: 100%; min-height: 100%;
 	width: auto; height: auto; z-index: -100;
@@ -87,23 +85,3 @@ video#bgvid {
 		opacity: 1;
 	}
 
-.map-icon-span{
-	overflow: hidden;
-	border: 0;
-	background: transparent;
-	display: block;
-	width: 169px;
-	height: 100px;
-	margin: 0 0 0 510px;
-	z-index: 2;
-	position: relative;
-}
-
-.map-pin-icon{
-	transition: 1s;
-	fill: rgba(250, 250, 250, 0.8);
-	cursor: pointer;
-	height: 91px;
-	width: 91px;
-	margin: 15px -111px 0 0;
-}
