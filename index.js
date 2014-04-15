@@ -125,23 +125,23 @@ app.get('/location/:place', function(req, res){
 						var test_events = [
 						{
 							"name": "Meteor Shower",
-							"hour": 13,
+							"hour": 20,
 							"day": 14
 						},
 						{
 							"name": "Comet Passing",
-							"hour": 16,
-							"day": 13
+							"hour": 22,
+							"day": 14
 						},
 						{
 							"name": "Meteor Shower",
-							"hour": 20,
-							"day": 13
+							"hour": 4,
+							"day": 15
 						},
 						{
 							"name": "Asteroid",
-							"hour": 22,
-							"day": 13
+							"hour": 10,
+							"day": 15
 						},
 						{
 							"name": "Jupiter",
