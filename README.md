@@ -1,4 +1,4 @@
 NowSky
 ======
 
-Sky event aggragation and visualization app.
+Sky event aggregation and visualization app.
