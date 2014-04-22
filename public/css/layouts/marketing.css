@@ -189,9 +189,7 @@ a.pure-button-primary {
     color: white;
     letter-spacing: 0.05em;
     opacity: 0.8;
-	width: 78%;
-	margin: 71px auto 0 11px;
-	position: fixed;
+	width: 302px;
 	text-align: left;
 	display: block;
 	font-size: 12px;
@@ -291,7 +289,7 @@ a.pure-button-primary {
 		width: 56%;
     }
 	.splash-subhead{
-		width: 55%;
+		width: 696px;
 		margin: 5px 6px;
 	}
 	#myLocale{
@@ -320,7 +318,6 @@ a.pure-button-primary {
         font-size: 300%;
     }
 	.splash-subhead{
-		width: 54%;
 		margin: 83px 11px 0;
 		font-size: inherit;
 	}
@@ -328,10 +325,8 @@ a.pure-button-primary {
 		height: 45px;
 	}
 	.map-icon-span{
-		margin: 0 0 0 39%; 
 		padding: 12px 0;
-		width: 13%;
-		height: 18%;
+		margin: -107px 0 0 40%;
 	}
 		.map-pin-icon{
 			margin: 2px -111px 0 0;

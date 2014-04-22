@@ -45,8 +45,6 @@ body{
 .sky-search-field input{
 	background: transparent !important;
 	display: block;
-	position: fixed;
-	z-index: 1;
 }
 
 video { display: block; }
