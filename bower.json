@@ -27,6 +27,8 @@
     "polymer": "~0.2.2",
     "bootstrap": "~3.1.1",
     "jquery": "~2.1.0",
-    "typeahead.js": "~0.10.2"
+    "typeahead.js": "~0.10.2",
+    "polymer-elements": "Polymer/polymer-elements#~0.2.3",
+    "polymer-ui-elements": "PolymerLabs/polymer-ui-elements#~0.2.3"
   }
 }

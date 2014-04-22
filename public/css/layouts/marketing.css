@@ -125,13 +125,16 @@ a.pure-button-primary {
     color: #AECFE5;
 }
 
+.polymer-map-icon{
+    height: inherit !important;
+    width: inherit !important;
+}
+
 .map-icon-span{
 	border: 0;
 	background: transparent;
 	display: block;
-	width: 13%;
-	height: 11%;
-	margin: 3px 0 0 51%;
+	margin: auto 0 0 51%;
 	z-index: 2;
 	position: fixed;
 	padding: 14px 0 0;
@@ -140,7 +143,6 @@ a.pure-button-primary {
 		transition: 1s;
 		fill: rgba(250, 250, 250, 0.8);
 		cursor: pointer;
-		margin: -21px -96px 0 0;
 	}
 
 
@@ -170,18 +172,6 @@ a.pure-button-primary {
     top: 100px; left: 0; bottom: 0; right: 0;
     text-align: center;
     text-transform: uppercase;
-}
-
-/* This is the main heading that appears on the blue section */
-.splash-head {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    border: 3px solid  rgba(250, 250, 250, 0.8);
-    padding: 0.6em 1.6em;
-    font-weight: 100;
-    border-radius: 5px;
-    line-height: 1em;
 }
 
 /* This is the subheading that appears on the blue section */
@@ -243,9 +233,13 @@ a.pure-button-primary {
     background: #111;
 }
 
-.sky-search-field input{
-		width: 80%;
-	}
+.search-area{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1em; 
+    border: 3px solid rgba(250, 250, 250, 0.8);
+    padding: 0.2em 1.6em 0.2em 0;
+    border-radius: 5px;
+}
 
 /*
  * -- TABLET (AND UP) MEDIA QUERIES --
@@ -295,9 +289,6 @@ a.pure-button-primary {
 	#myLocale{
 		margin: -8px 0 0 0;
 	}
-	.sky-search-field input{
-		width: inherit;
-	}
 
 
     /* We remove the border-separator assigned to .l-box-lrg */
@@ -321,14 +312,13 @@ a.pure-button-primary {
 		margin: 83px 11px 0;
 		font-size: inherit;
 	}
-	.sky-search-field{
-		height: 45px;
-	}
 	.map-icon-span{
 		padding: 12px 0;
-		margin: -107px 0 0 40%;
+		margin: -107px 0 0 40px;
 	}
 		.map-pin-icon{
-			margin: 2px -111px 0 0;
+            display: block;
+            width: 66px;
+            height: 66px;
 		}
 }
