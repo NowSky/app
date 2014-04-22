@@ -28,4 +28,4 @@ node_modules
 api_keys.xml
 api_keys.json
 
-bower_components
+bower_components/*
