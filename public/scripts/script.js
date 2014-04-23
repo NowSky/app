@@ -13,18 +13,18 @@ function showPosition(position){
 $(function(){
 	
 	// search area events
-	$('#autocomplete, #location-3-icon').on({
+	$('#autocomplete, .map-pin-icon').on({
 		mouseenter: function(){
 			$(this).attr('placeholder', '');
 			$('.map-pin-icon').css('opacity', 1);
 		},
 		mouseleave: function(){
 			$(this).attr('placeholder', 'Your Locale.');
-			$('.map-pin-icon').css('opacity', 0.8);
+			$('.map-pin-icon').css('opacity', 0.7);
 		},
 		onblur: function(){
 			$(this).attr('placeholder', 'Your Locale.');
-			$('.map-pin-icon').css('opacity', 0.8);
+			$('.map-pin-icon').css('opacity', 0.7);
 		}
 	}); // search area events end
 	

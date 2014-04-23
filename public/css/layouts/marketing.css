@@ -125,23 +125,15 @@ a.pure-button-primary {
     color: #AECFE5;
 }
 
-.map-icon-span{
-	border: 0;
-	background: transparent;
-	display: block;
-	width: 13%;
-	height: 11%;
-	margin: 3px 0 0 51%;
-	z-index: 2;
-	position: fixed;
-	padding: 14px 0 0;
+.map-pin-icon{
+	transition: 1s;
+    opacity: 0.7;
+	cursor: pointer;
+    border: none;
 }
-	.map-pin-icon{
-		transition: 1s;
-		fill: rgba(250, 250, 250, 0.8);
-		cursor: pointer;
-		margin: -21px -96px 0 0;
-	}
+    .map-pin-icon:hover{
+        opacity: 1;
+    }
 
 
 /*
@@ -172,26 +164,12 @@ a.pure-button-primary {
     text-transform: uppercase;
 }
 
-/* This is the main heading that appears on the blue section */
-.splash-head {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    border: 3px solid  rgba(250, 250, 250, 0.8);
-    padding: 0.6em 1.6em;
-    font-weight: 100;
-    border-radius: 5px;
-    line-height: 1em;
-}
-
 /* This is the subheading that appears on the blue section */
 .splash-subhead {
     color: white;
     letter-spacing: 0.05em;
     opacity: 0.8;
-	width: 78%;
-	margin: 71px auto 0 11px;
-	position: fixed;
+	width: 302px;
 	text-align: left;
 	display: block;
 	font-size: 12px;
@@ -245,9 +223,18 @@ a.pure-button-primary {
     background: #111;
 }
 
-.sky-search-field input{
-		width: 80%;
-	}
+.search-area{
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    border: 3px solid rgba(250, 250, 250, 0.8);
+    border-radius: 5px;
+}
+    #autocomplete{
+        font-weight: 100;
+        color: #fff;
+        line-height: 58px;
+        font-size: 2em;
+        padding: 0.3em 10px 0.3em 0.6em;
+    }
 
 /*
  * -- TABLET (AND UP) MEDIA QUERIES --
@@ -263,6 +250,9 @@ a.pure-button-primary {
     /* We want to give the content area some more padding */
     .content {
         padding: 1em;
+    }
+    #autocomplete{
+        font-size: 3.3em;
     }
 
     /* We can align the menu header to the left, but float the
@@ -291,14 +281,11 @@ a.pure-button-primary {
 		width: 56%;
     }
 	.splash-subhead{
-		width: 55%;
-		margin: 5px 6px;
+        width: 99%;
+        margin: 13px 5px 6px;
 	}
 	#myLocale{
 		margin: -8px 0 0 0;
-	}
-	.sky-search-field input{
-		width: inherit;
 	}
 
 
@@ -320,20 +307,6 @@ a.pure-button-primary {
         font-size: 300%;
     }
 	.splash-subhead{
-		width: 54%;
-		margin: 83px 11px 0;
 		font-size: inherit;
 	}
-	.sky-search-field{
-		height: 45px;
-	}
-	.map-icon-span{
-		margin: 0 0 0 39%; 
-		padding: 12px 0;
-		width: 13%;
-		height: 18%;
-	}
-		.map-pin-icon{
-			margin: 2px -111px 0 0;
-		}
 }
