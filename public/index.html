@@ -36,15 +36,6 @@
 			document.createElement('video');
 		</script>
 	<![endif]-->
-	
-	<style>
-		#autocomplete{
-			padding: 0.3em 2em 0.3em 0.6em;
-            font-size: 48px;
-            font-weight: 100;
-            color: #fff;
-		}
-    </style>
   
 	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places"></script>
 	<script src="./scripts/places-autocomplete.js"></script>
@@ -75,6 +66,8 @@
         <form class="sky-search-field search-element" action="./results.html" name="">
             <polymer-ui-field>
                 <input id="autocomplete" class="search-element" placeholder="Your locale." onFocus="geolocate()" type="text" autofocus name="userInput" flex>
+                <polymer-ui-icon class="map-pin-icon" src="https://googledrive.com/host/0B92YJK5CJQemVXF4V1ZDQklXUnc/iconmonstr-location2.svg" icon="marker" size="66"></polymer-ui-icon>
+                <!--
                 <polymer-ui-icon class="polymer-map-icon">
                   <svg class="map-pin-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"> <path
@@ -83,28 +76,31 @@
                     s20.953-46.8,46.801-46.8s46.801,20.953,46.801,46.8S281.848,224.133,256,224.133z"/> 
                     </svg>
                 </polymer-ui-icon>
+                -->
             </polymer-ui-field>
         </form>
+		</span> <!-- search-area pure-g-r end -->
+
+        <p id="demo"> </p> 
+            <span class="splash-subhead search-element">
+                <button id="myLocale" class="pure-button pure-button-primary search-element" onclick="getLocation()" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Click for your coordinates.">
+                    MY LOCALE
+                </button>
+                <span>Find a Sky Event to watch tonight.</span>
+        </span>
 
         <!--
-			<form class="sky-search-field search-element" action="./results.html" name="">
-				<input id="autocomplete" class="splash-head search-element" placeholder="Your locale." onFocus="geolocate()" type="text" autofocus name="userInput">
-				<button class="map-icon-span search-element" type="submit">
-					<svg class="map-pin-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-					viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"> <path
-					id="location-3-icon" d="M256,50c-72.072,0-130.5,58.427-130.5,130.5c0,107.167,102.641,118.501,130.5,281.5
-					c27.861-163,130.5-174.333,130.5-281.5C386.5,108.427,328.074,50,256,50z M256,224.133c-25.848,0-46.801-20.953-46.801-46.8
-					s20.953-46.8,46.801-46.8s46.801,20.953,46.801,46.8S281.848,224.133,256,224.133z"/> </svg>
-				</button>
-			</form> 
-
-			<p id="demo"> </p> 
-			<span class="splash-subhead search-element">
-				<button id="myLocale" class="pure-button pure-button-primary search-element" onclick="getLocation()" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Click for your coordinates.">MY LOCALE</button>
-				<span>Find a Sky Event to watch tonight.</span>
-			</span>
+            <form class="sky-search-field search-element" action="./results.html" name="">
+                <input id="autocomplete" class="splash-head search-element" placeholder="Your locale." onFocus="geolocate()" type="text" autofocus name="userInput">
+                <button class="map-icon-span search-element" type="submit">
+                    <svg class="map-pin-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                    viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"> <path
+                    id="location-3-icon" d="M256,50c-72.072,0-130.5,58.427-130.5,130.5c0,107.167,102.641,118.501,130.5,281.5
+                    c27.861-163,130.5-174.333,130.5-281.5C386.5,108.427,328.074,50,256,50z M256,224.133c-25.848,0-46.801-20.953-46.801-46.8
+                    s20.953-46.8,46.801-46.8s46.801,20.953,46.801,46.8S281.848,224.133,256,224.133z"/> </svg>
+                </button>
+            </form> 
             -->
-		</span> <!-- search-area pure-g-r end -->
     </div>
 </div>
 
