@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/Kooshaba/nowsky",
   "dependencies": {
-    "request": "~2.34.0",
+    "request": "~2.88.2",
     "express": "~4.0.0",
     "forever": "~0.11.0"
   }
